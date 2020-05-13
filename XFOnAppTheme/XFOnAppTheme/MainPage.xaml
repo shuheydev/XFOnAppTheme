@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFOnAppTheme.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{OnAppTheme Black, Light=Blue, Dark=Teal}" />
+            <Setter Property="BackgroundColor" Value="{OnAppTheme Light='#00FFFF', Dark='#999999'}" />
+        </Style>
+
+        <Color x:Key="LightTextColor">#00FF00</Color>
+        <Color x:Key="DarkTextColor">#FF0000</Color>
+        <Style x:Key="labelStyle2" TargetType="Label">
+            <Setter Property="BackgroundColor" Value="{OnAppTheme Light={x:StaticResource LightTextColor}, Dark={x:StaticResource DarkTextColor}}" />
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Label
+            HorizontalOptions="CenterAndExpand"
+            Text="インラインで指定"
+            TextColor="{OnAppTheme Light=Green,
+                                   Dark=Red}"
+            VerticalOptions="CenterAndExpand" />
+        <Label
+            HorizontalOptions="CenterAndExpand"
+            Style="{DynamicResource labelStyle}"
+            Text="Styleで指定(DynamicResourceを使う)"
+            VerticalOptions="CenterAndExpand" />
+        <Label
+            HorizontalOptions="CenterAndExpand"
+            Style="{DynamicResource labelStyle2}"
+            Text="Styleで指定2"
+            VerticalOptions="CenterAndExpand" />
+    </StackLayout>
+
+</ContentPage>
